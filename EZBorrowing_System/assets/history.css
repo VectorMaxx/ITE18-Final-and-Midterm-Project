@@ -1,0 +1,259 @@
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 22px;
+    gap: 2em;
+}
+.page-header h2 {
+    font-size: 1.8rem;
+    margin: 0;
+    color: #1b5e20;
+}
+.page-subtitle {
+    color: #4caf50;
+    font-size: 1.08em;
+    margin-top: 9px;
+}
+.return-filters {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 10px;
+}
+.return-filters input[type="search"], .return-filters select {
+    padding: 7px 12px;
+    border: 1px solid #c8e6c9;
+    border-radius: 6px;
+    background: #effaf2;
+    color: #2e7d32;
+    font-size: 1em;
+    outline: none;
+}
+.section-title {
+    color: #1b5e20;
+    font-size: 1.15em;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+.table-wrapper {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 7px rgba(44, 167, 84, 0.04);
+    padding: 8px 18px;
+    overflow-x: auto;
+}
+.return-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.return-table th {
+    background-color: #43a047;
+    color: white;
+    text-align: left;
+    padding: 12px;
+}
+.return-table td {
+    padding: 12px;
+    border-bottom: 1px solid #e8f5e9;
+}
+.return-table tbody tr:hover {
+    background: #e6f4ea;
+}
+.empty-row {
+    text-align: center;
+    color: #4caf50;
+}
+
+/* Shared pill style for all statuses */
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 14px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    border: none;
+    white-space: nowrap;
+}
+
+/* Specific colors per status */
+.status-borrowed {
+    background-color: #29b6f6; /* blue */
+    color: #ffffff;
+}
+
+.status-returned {
+    background-color: #c8e6c9; /* light green */
+    color: #1b5e20;
+}
+
+.status-declined {
+    background-color: #e53935; /* red */
+    color: #ffffff;
+}
+
+/* NEW – Pending uses same pill style, only color is different */
+.status-pending {
+    background-color: #ffcc80; /* soft orange */
+    color: #8a4b00;            /* dark brown/orange text */
+}
+
+
+/* ===========================
+   PRINT & EXPORT BUTTONS
+   =========================== */
+.history-action-btn {
+    background: #2e7d32;           /* Dark green */
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 0.95em;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 2px 6px rgba(46, 125, 50, 0.15);
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+.history-action-btn:hover {
+    background: #1b5e20;          /* Darker green */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(46, 125, 50, 0.25);
+}
+
+.history-action-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(46, 125, 50, 0.15);
+}
+
+/* ICON inside buttons */
+.history-action-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: white;
+}
+
+/* =======================
+   PRINT LAYOUT FOR HISTORY
+   ======================= */
+@media print {
+
+    /* Use full page width, white background */
+    html, body {
+        margin: 0;
+        padding: 0;
+        background: #ffffff;
+        color: #000000;
+        font-size: 11pt;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    /* Hide navigation / chrome that we don't want on the report */
+    .sidebar,
+    .topbar,
+    .history-action-btn,
+    .return-filters,
+    .page-header .page-subtitle,
+    .page-header input[type="search"],
+    .page-header select {
+        display: none !important;
+    }
+
+    /* Let the main content use the full width */
+    .container {
+        display: block;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .main-content {
+        margin: 0;
+        padding: 15mm 15mm 20mm 15mm; /* page margins for the report */
+        width: 100%;
+        box-shadow: none;
+        background: #ffffff;
+    }
+
+    /* Page title area */
+    .page-title,
+    .page-header h2 {
+        font-size: 18pt;
+        font-weight: 700;
+        margin-bottom: 2mm;
+    }
+
+    .page-header {
+        margin: 0 0 8mm 0;
+        padding: 0;
+    }
+
+    /* Section title (e.g., "Borrowed Items") */
+    .section-title {
+        font-size: 13pt;
+        margin: 6mm 0 3mm 0;
+    }
+
+    /* Table container */
+    .table-wrapper {
+        box-shadow: none;
+        border-radius: 0;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Main table */
+    .return-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 10pt;
+    }
+
+    .return-table th,
+    .return-table td {
+        padding: 4px 6px;
+        border: 0.3pt solid #cfd8dc; /* light grid lines for formality */
+    }
+
+    .return-table th {
+        background: #43a047;   /* keep your green header */
+        color: #ffffff;
+    }
+
+    /* Month separator row (📅 November 2025) */
+    .return-table tr[style*="background:#e8f5e9"] td {
+        background: #e8f5e9 !important;
+        font-weight: 700;
+        border-top: 0.6pt solid #a5d6a7;
+    }
+
+    /* Status pills still visible and colored */
+    .status-pill {
+        padding: 2px 6px;
+        border-radius: 999px;
+        font-size: 9pt;
+        font-weight: 600;
+        display: inline-block;
+    }
+
+    /* Avoid printing link URLs after text */
+    a[href]:after {
+        content: "";
+    }
+
+    /* Prevent page breaks in the middle of header row */
+    thead { display: table-header-group; }
+    tr { page-break-inside: avoid; }
+
+    /* Optional: small footer with page number */
+    @page {
+        margin: 10mm;
+    }
+}

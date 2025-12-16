@@ -1,0 +1,60 @@
+CREATE DATABASE IF NOT EXISTS ezborrowing_db;
+USE ezborrowing_db;
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_number VARCHAR(20) UNIQUE,
+    username VARCHAR(50) UNIQUE,
+    password VARCHAR(255),
+    role ENUM('student', 'faculty', 'custodian') DEFAULT 'student',
+    firstname VARCHAR(100),
+    lastname VARCHAR(100),
+    profile_pic VARCHAR(255)
+);
+
+CREATE TABLE equipment (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(200) NOT NULL,
+    description TEXT,
+    quantity INT NOT NULL,
+    status ENUM('available', 'borrowed', 'unavailable') DEFAULT 'available'
+);
+
+CREATE TABLE borrow_records (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    equipment_id INT NOT NULL,
+    quantity INT NOT NULL DEFAULT 1,
+    date_borrowed DATETIME NOT NULL,
+    date_returned DATETIME NULL,   -- ADDED BASED ON YOUR LATEST UPDATE
+    status ENUM('pending', 'borrowed', 'returned', 'declined') DEFAULT 'pending',
+    
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (equipment_id) REFERENCES equipment(id) ON DELETE CASCADE
+);
+
+CREATE TABLE returned_items (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    borrow_id INT NOT NULL,                -- Added because your system uses it
+    user_id INT NOT NULL,
+    equipment_id INT NOT NULL,
+    quantity_returned INT NOT NULL,
+    date_returned DATETIME NOT NULL,
+    item_condition VARCHAR(100),           -- Good, Fair, Damaged
+
+    FOREIGN KEY (borrow_id) REFERENCES borrow_records(id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (equipment_id) REFERENCES equipment(id) ON DELETE CASCADE
+);
+
+CREATE TABLE equipment_marked (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    equipment_id INT NOT NULL,
+    marked_by INT NOT NULL,
+    condition_type VARCHAR(50) NOT NULL,
+    quantity INT NOT NULL DEFAULT 1,
+    date_marked DATETIME NOT NULL,
+
+    FOREIGN KEY (equipment_id) REFERENCES equipment(id) ON DELETE CASCADE,
+    FOREIGN KEY (marked_by) REFERENCES users(id) ON DELETE CASCADE
+);

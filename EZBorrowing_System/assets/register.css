@@ -1,0 +1,137 @@
+body {
+    background-image: url(../img/forest.jpg);
+    background-size: cover;
+    background-position: center;
+    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 410px;
+    margin: 40px auto;
+}
+
+.form-box {
+    backdrop-filter: blur(50px);
+    box-shadow: 0 8px 32px rgba(40, 100, 40, 0.10), 0 1.5px 3px rgba(30, 70, 30, 0.07);
+    border-radius: 22px;
+    padding: 48px 36px 36px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+}
+
+.form-box h2 {
+    margin-bottom: 14px;
+    color: #0d9c20;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-align: center;
+    font-size: 2em;
+}
+
+.form-box input,
+.dropdown select {
+    padding: 16px 14px;
+    border-radius: 10px;
+    border: 1.5px solid #d5e6c6;
+    background: #eefcf2;
+    font-size: 1.08em;
+    margin-bottom: 0;
+    transition: border-color 0.22s, box-shadow 0.22s;
+    outline: none;
+    box-shadow: 0 1.5px 3px rgba(20, 60, 20, 0.04);
+}
+
+.form-box input:focus,
+.dropdown select:focus {
+    border-color: #54b604;
+    box-shadow: 0 5px 12px rgba(53, 206, 18, 0.09);
+}
+
+.role-label {
+    color: #0d9c20;
+    font-weight: 700;
+    margin-bottom: 7px;
+    margin-top: -12px;
+    font-size: 1.04em;
+    letter-spacing: 0.5px;
+}
+
+.dropdown select {
+    width: 100%;
+    padding-right: 42px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%23156c20' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 18px 18px;
+}
+
+.form-box button {
+    margin-top: 10px;
+    background: linear-gradient(90deg, #24a50d 30%, #54b604 100%);
+    color: #fffefd;
+    border: none;
+    border-radius: 10px;
+    padding: 16px 0;
+    font-size: 1.13em;
+    font-weight: bold;
+    cursor: pointer;
+    letter-spacing: 0.2px;
+    transition: background 0.17s, box-shadow 0.17s;
+    box-shadow: 0 2px 8px rgba(40, 120, 50, 0.07);
+}
+
+.form-box button:hover {
+    background: linear-gradient(90deg, #2dba0d, #166c09 90%);
+    box-shadow: 0 4px 18px rgba(30, 120, 50, 0.09);
+}
+
+.form-box p {
+    text-align: center;
+    margin: 16px 0 0 0;
+    color: #b5a36e;
+    font-size: 1.01em;
+    letter-spacing: .2px;
+}
+
+.form-box a {
+    color: #19811a;
+    text-decoration: none;
+    transition: color 0.19s;
+    font-weight: 600;
+}
+
+.form-box a:hover {
+    text-decoration: underline;
+    color: #44ba16;
+}
+
+.error-message {
+    color: #d9534f;
+    font-size: 0.92em;
+    align-self: top;
+    font-weight: 600;
+}
+
+.success-message {
+    background-color: #d4edda;
+    border: 1px solid #28a745;
+    color: #155724;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 18px;
+    font-weight: 600;
+    text-align: center;
+}
+
+

@@ -1,0 +1,140 @@
+/* ---------- Layout & search bar (your original styles) ---------- */
+
+.page-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+    width: 100%;
+}
+
+.right-align {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.search-bar-container {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(90deg, #e8f5e9 60%, #d6f5df 100%);
+    border-radius: 30px;
+    border: 2.2px solid #3da653;
+    box-shadow: 0 1.5px 9px #43a04713;
+    padding: 4px 4px 4px 13px;
+    min-width: 230px;
+    height: 46px;
+    transition: border-color 0.17s, box-shadow 0.13s;
+    margin-left: auto;
+}
+
+.search-bar-container:focus-within {
+    border-color: #179547;
+    box-shadow: 0 2px 13px #52e07822;
+}
+
+.search-bar-container .search-icon {
+    margin-right: 7px;
+    margin-top: 2px;
+}
+
+.search-bar-container input[type='search'] {
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1.1em;
+    flex: 1;
+    padding: 7px 5px;
+    color: #23773a;
+    width: 220px;
+}
+
+/* ---------- NEW: success banner ---------- */
+
+.return-success-banner {
+    margin: 12px 0 18px 0;
+    padding: 10px 16px;
+    border-radius: 9px;
+    background: #e8f5e9;
+    border: 1px solid #a5d6a7;
+    color: #1b5e20;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.98rem;
+}
+
+.return-success-banner span.icon {
+    font-size: 1.25em;
+}
+
+/* ---------- NEW: condition select styles ---------- */
+
+.condition-select {
+    padding: 6px 14px;
+    border-radius: 22px;
+    border: 2px solid #43a047;
+    background: #f3fff5;
+    color: #166534;
+    font-size: 0.95em;
+    outline: none;
+    min-width: 110px;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%23166534' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px 16px;
+}
+
+.condition-select:focus {
+    border-color: #2e7d32;
+    background-color: #e8f5e9;
+}
+
+/* Filter form (custodian) */
+.condition-filter-form {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.condition-filter-form label {
+    font-weight: 600;
+    color: #166534;
+}
+
+/* ---------- NEW: align Action column + Return button ---------- */
+
+th.return-action-col {
+    text-align: center;
+}
+
+td.return-action-col {
+    text-align: center;
+    vertical-align: middle;
+}
+
+td.return-action-col form {
+    display: inline-block;
+}
+
+/* Optional: keep table wrapper look consistent if needed */
+.table-wrapper {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 7px rgba(44, 167, 84, 0.04);
+    padding: 8px 18px;
+    overflow-x: auto;
+}
+
+.empty-row {
+    text-align: center;
+    color: #4caf50;
+}

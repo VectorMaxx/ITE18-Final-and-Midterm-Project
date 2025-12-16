@@ -1,0 +1,7 @@
+Using NGROK
+
+Run this in CMD:
+ngrok config add-authtoken 36s1ARwTU80tpZ7oVVuSaN8PUaI_5dH4khdi4nJYUqWoGqTym
+
+Deploy the app online:
+ngrok http 80

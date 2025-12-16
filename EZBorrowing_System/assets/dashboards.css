@@ -1,0 +1,314 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #f4f6f3;
+  color: #333;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+.sidebar {
+  width: 250px;
+  background-color: #2e7d32;
+  color: #fff;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease;
+}
+
+/* ✅ ADDED: Close icon inside sidebar (mobile) */
+.sidebar-close {
+  display: none;              /* only visible on mobile */
+  align-self: flex-end;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.6rem;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+}
+
+.menu {
+  list-style: none;
+}
+
+.menu li {
+  padding: 12px 15px;
+  border-radius: 10px;
+  transition: background-color 0.3s;
+}
+
+.menu li.active,
+.menu li:hover {
+  background-color: #43a047;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+.main-content {
+  flex: 1;
+  background-color: #ffffff;
+  padding: 25px 40px;
+  overflow-y: auto;
+}
+
+/* =========================
+   TOPBAR
+========================= */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #c8e6c9;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 25px;
+}
+
+/* Hamburger button */
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 1.9rem;
+  cursor: pointer;
+  color: #1b5e20;
+}
+
+/* Page title */
+.page-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #388e3c;
+}
+
+.page-header h2,
+.custom-page-title {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #228b22;
+  font-weight: 700;
+  font-size: 2.15em;
+  margin-bottom: 8px;
+  margin-left: 0;
+  letter-spacing: 0.01em;
+}
+
+.page-header .page-subtitle,
+.custom-page-subtitle,
+.page-header p.page-subtitle {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #54af5c;
+  font-size: 1.1em;
+  margin-left: 0;
+  line-height: 1.4;
+  margin-bottom: 2px;
+  letter-spacing: 0.003em;
+  font-weight: 500;
+}
+
+/* User profile */
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 0 2px #16a34a;
+}
+
+.user-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+/* Cards/dashboard */
+.welcome h2 {
+  font-size: 26px;
+  color: #1b5e20;
+  margin-bottom: 20px;
+}
+
+.stats {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background-color: #e8f5e9;
+  flex: 1 1 220px;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card h3 {
+  color: #2e7d32;
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #4caf50;
+  font-weight: 500;
+}
+
+.dashboard {
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.dashboard h3 {
+  color: #1b5e20;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background-color: #43a047;
+  color: white;
+  text-align: left;
+  padding: 12px;
+  font-size: 15px;
+}
+
+td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+  background-color: #f1f8e9;
+}
+
+button,
+.borrow {
+  background-color: #43a047;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+button:hover,
+.borrow:hover {
+  background-color: #2e7d32;
+}
+
+button.disable {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+  .main-content {
+    padding: 14px;
+  }
+
+  /* show hamburger */
+  .menu-toggle {
+    display: inline-block;
+  }
+
+  /* ✅ show close button on mobile */
+  .sidebar-close {
+    display: inline-block;
+  }
+
+  /* sidebar becomes off-canvas */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 2000;
+    transform: translateX(-100%);
+    padding-top: 20px;
+  }
+
+  /* open sidebar */
+  .sidebar.sidebar-open {
+    transform: translateX(0);
+  }
+
+  /* overlay */
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 1500;
+  }
+
+  .sidebar-overlay.active {
+    display: block;
+  }
+
+  /* topbar spacing */
+  .topbar {
+    padding: 12px 14px;
+  }
+
+  .user-name {
+    display: none; /* saves space on mobile */
+  }
+}
